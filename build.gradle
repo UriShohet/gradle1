@@ -1,0 +1,35 @@
+group = 'com.ushohet.samples'
+version = '0.0.1-SNAPSHOT'
+description = 'Example Scala and Java project'
+
+apply plugin: 'scala'
+apply plugin: 'maven'
+
+repositories{
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies{
+    compile 'org.slf4j:slf4j-api:1.7.5'
+    runtime "org.scala-lang:scala-library:2.11.7"
+    compile "org.scala-lang:scala-compiler:2.11.7"
+    testCompile "junit:junit:4.11"
+}
+
+defaultTasks 'clean', 'run', "upper"
+
+task run(type: JavaExec, dependsOn: classes) {
+    main = 'Main'
+    classpath sourceSets.main.runtimeClasspath
+    classpath configurations.runtime
+}
+
+task upper << {
+    String someString = 'mY_nAmE'
+    println "Original: " + someString
+    println "Upper case: " + someString.toUpperCase()
+}
+
+name
+group
