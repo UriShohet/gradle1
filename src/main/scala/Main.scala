@@ -1,5 +1,5 @@
 object Main extends App {
-  println("Hello, World!!!")
+  println("Hello, Uri!!!")
   println(uri.T.t()+"@@@")
   println(uri.T.t())
 }
